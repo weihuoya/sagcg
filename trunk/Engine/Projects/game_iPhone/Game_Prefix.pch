@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'irrlichtApplication' target in the 'irrlichtApplication' project
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#endif
+
