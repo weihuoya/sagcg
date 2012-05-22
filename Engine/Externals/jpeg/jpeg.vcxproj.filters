@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Code">
+      <UniqueIdentifier>{04a3dbee-db7b-4836-9e48-854ed66c8974}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cderror.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="cdjpeg.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jchuff.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jconfig.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jdct.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jdhuff.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jerror.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jinclude.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jmemsys.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jmorecfg.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jpegint.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jpeglib.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="jversion.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="transupp.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cdjpeg.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="cjpeg.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="ckconfig.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="djpeg.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcapimin.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcapistd.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jccoefct.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jccolor.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcdctmgr.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jchuff.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcinit.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcmainct.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcmarker.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcmaster.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcomapi.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcparam.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcphuff.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcprepct.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jcsample.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jctrans.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdapimin.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdapistd.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdatadst.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdatasrc.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdcoefct.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdcolor.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jddctmgr.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdhuff.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdinput.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdmainct.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdmarker.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdmaster.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdmerge.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdphuff.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdpostct.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdsample.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jdtrans.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jerror.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jfdctflt.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jfdctfst.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jfdctint.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jidctflt.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jidctfst.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jidctint.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jidctred.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jmemansi.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jmemmgr.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jmemname.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jmemnobs.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jpegtran.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jquant1.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jquant2.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="jutils.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdbmp.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdcolmap.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdgif.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdjpgcom.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdppm.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdrle.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdswitch.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="rdtarga.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="transupp.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="wrbmp.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="wrgif.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="wrjpgcom.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="wrppm.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="wrrle.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="wrtarga.c">
+      <Filter>Code</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

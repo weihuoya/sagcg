@@ -1,0 +1,121 @@
+[b]Об уроках:[/b]
+Все привет, я хочу начать серию уроков с ядром SaGCG (simple-and-good-core-games), основанном на Irrlicht и GameSWF.
+Надеюсь что этот урок внесут в "Часто задаваемые вопросы по irrLicht (FAQ)"[url]http://irrlicht.ru/forum/viewtopic.php?f=1&t=84[/url]
+Тема SaGCG на этом форуме[url]http://irrlicht.ru/forum/viewtopic.php?f=6&t=547[/url]
+Страничка SaGCG на Гугл Коде [url]http://code.google.com/p/sagcg/[/url]
+[color=#FF0000][b]Cкачать [/b][/color]собранную версию SaGCG и протестировать можно здесь [url]http://code.google.com/p/sagcg/downloads/list[/url]
+Для тех кто хочет последнюю ревизию ссылка на SVN [url]http://sagcg.googlecode.com/svn/[/url]
+Для тех кто хочет пофлудить на енглише [url]http://irrlicht.sourceforge.net/forum/viewtopic.php?f=9&t=46046[/url]
+
+
+[b]Благодарности:[/b]
+Отдельное спасибо Лесе Бойко за помощь в изучении и создании Стейт машины и евент менеджера.
+Отдельное спасибо Дмитрию Советову за помощь в создании UIManager для работы с GameSWF.
+Отдельное спасибо Виталию Паровишнику  за помощь в создании TimeManager.
+
+[size=200][color=#008000][b]Урок 2 Использование SaGCG, Создание простого Стейта (State)[/b][/color][/size]
+
+[color=#FF0000][b]И так Поехали![/b][/color]
+[b]1. Настроим "working directory".[/b]
+Устанавливаем рабочую директорию "$(SolutionDir)\..\..\Build\" смотри рисунок:
+[img]http://vixen-brush.narod.ru/sagcg/SetWorkingDirectory.jpg[/img]
+
+[b]2. Создание нового стейта (State).[/b]
+а. Копируем из папки [b]Source\Game\GameState\BlankState\[/b]
+файлы:
+GSBlankState.cpp
+GSBlankState.h
+в каталог [b]Source\Game\GameState\[/b]
+б. Теперь в каталоге [b]Source\Game\GameState\[/b]
+переименовываем GSBlankState.h в GSMyNewState.h , а GSBlankState.cpp в GSMyNewState.cpp.
+в. В файлах GSMyNewState.cpp и GSMyNewState.h делаем замену фразы GSBlankState на GSMyNewState.
+Незабываем добавить файлы в проэкт...
+[img]http://vixen-brush.narod.ru/sagcg/addFilesState.jpg[/img]
+и так Новый стейт готов! теперь давайте его активируем!
+
+[b]3. Активация нового стейта.[/b]
+При загрузке Ядра SaGCG запускается стейт по умолчанию GSBaseState.
+Давайте внимательно рассмотрим метод "GSBaseState::update ( StateMachine *sm )" в файле GSBaseState.cpp
+[code]
+void GSBaseState::update ( StateMachine *sm )
+{
+	Logs::debug ( "State GSBaseState::update\n" ); // Отправить в консоль сообшение "State GSBaseState::update"  если включен режим debug  сообщений в файле Commons.h
+
+	if ( m_isGame->getGameIsRun() ) // Проверяем прошла ли полностью инициализация Ядра игры и всех менеджеров.
+	{
+		if ( !m_isGameStarted ) 
+		{
+			m_isStateMachine->pushState<GSSelectlanguage>(); // Запускаем стейт GSSelectlanguage
+			m_isGameStarted=true;
+		}
+	}
+}
+[/code]
+давайте заменим этот код на следующий:
+[code]
+void GSBaseState::update ( StateMachine *sm )
+{
+	Logs::debug ( "State GSBaseState::update\n" ); // Отправить в консоль сообшение "State GSBaseState::update"  если включен режим debug  сообщений в файле Commons.h
+
+	if ( m_isGame->getGameIsRun() ) // Проверяем прошла ли полностью инициализация Ядра игры и всех менеджеров.
+	{
+		if ( !m_isGameStarted ) 
+		{
+			m_isStateMachine->pushState<GSMyNewState>(); // Запускаем стейт наш новый стейт GSMyNewState
+			m_isGameStarted=true;
+		}
+	}
+}
+[/code]
+незабываем добавить куданибуть в подключение хедеров
+[code] #include "GSMyNewState.h" [/code]
+
+[b]4. Последовательность передачи управления внутри стейта.[/b]
+
+Давайте вернемся к нашему стейту GSMyNewState
+и внимательно рассмотрим методы внутри его.
+А собственно нас интересуют некоторые из них:
+[list]ctor		( const StateMachine *sm );
+dtor		( const StateMachine *sm );
+update		( StateMachine *sm );
+draw		( const StateMachine *sm );
+onEvent ( const EEvent *ev, const EventManager *evMgr );[/list]
+В метод [b]"ctor( const StateMachine *sm );"[/b] выполняется при создании и передачи стейту управления. Здесь мы может создавать объекты уровня.
+Метод [b]"dtor( const StateMachine *sm )"[/b] выполняется при выгрузке стейта. Здесь мы должны удалять и очищать объекты уровня.
+Методы [b]"update( StateMachine *sm );"[/b] и [b]" draw( const StateMachine *sm );"[/b] передается управления после выполнения ctor, здесь можно выполнять какие то действия над объектами и обрабатывать из логику, В общем главный Стейт обдейт.
+В Метод [b]"onEvent ( const EEvent *ev, const EventManager *evMgr );[/list]"[/b] передается управление при приеме эвента на который подписан стейт.
+
+[b]5. давайте что-то закодим :-)[/b]
+В каталоге "Build\data\crazysky\" я обнаружил модель sky3.x, давайте ее загрузим и посмотрим что получиться...
+Находим следующий код в нашем стейте:
+[code]
+void GSMyNewState::ctor	( const StateMachine *sm )
+{
+	Logs::debug ( "State GSMyNewState::ctor\n" );
+}
+[/code]
+Добавляем в него загрузку анимационной модели и создадим камеру FPS
+[code]
+void GSMyNewState::ctor	( const StateMachine *sm )
+{
+	Logs::debug ( "State GSMyNewState::ctor\n" );
+	scene::IAnimatedMeshSceneNode *crazyskymesh = m_isGame->getSceneManager()->addAnimatedMeshSceneNode ( m_isGame->getSceneManager()->getMesh ( "data/crazysky/sky3.x" ) );
+	crazyskymesh->setMaterialFlag ( EMF_LIGHTING, false );
+	crazyskymesh->setPosition ( core::vector3df ( 0,0,0 ) );
+	crazyskymesh->setAnimationSpeed ( 0.7f );
+
+	scene::ICameraSceneNode *cameraFPS =m_isGame->getSceneManager()->addCameraSceneNodeFPS();
+	cameraFPS->setPosition ( core::vector3df ( 0,0,-600 ) );
+	cameraFPS->setTarget ( core::vector3df ( 0,0,0 ) );
+	cameraFPS->setFarValue ( 42000.0f );
+}
+[/code]
+
+Вот И все! 
+[img]http://vixen-brush.narod.ru/sagcg/RunTestedState.jpg[/img]
+
+
+[b][color=#FF0000]Следующий урок:[/color][/b]
+[size=150][b][color=#0000FF]Урок 3 Использование SaGCG, Работа с GameSWF[/color] [/b][/size] [color=#FF0000](В разработке)[/color]
+
+P.S. Если кто-то из модераторов найдет орфографические ошибки, просьба не серчайте :-)
